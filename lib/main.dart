@@ -16,65 +16,92 @@ class MyApp extends StatelessWidget {
   }
 }
 
+class ThemeColors {
+  static Color colorStart = Color.fromARGB(255, 0, 0, 0);
+  static Color colorEnd = Color.fromARGB(255, 247, 218, 248);
+  static Color colorMid = Color.fromARGB(255, 247, 218, 148);
+}
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
+  int count = 0;
+
+  // 动画
+//  Animation<Color> animation;
+//  AnimationController controller;
+//  initState() {
+//    super.initState();
+//    controller =
+//        AnimationController(duration: const Duration(seconds: 2), vsync: this);
+//    //颜色的过度
+//    animation =
+//    ColorTween(begin: ThemeColors.colorStart, end: ThemeColors.colorEnd)
+//        .animate(controller)
+//      ..addListener(() {
+//        setState(() => {});
+//      });
+//  }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new Center(
-        child: new Container(color: Colors.redAccent),
-//        child: new Column(
-//        children: <Widget>[
-//          new Expanded(
-//            child: new Container(
-//              color: Colors.redAccent,
-//              height: 40.0,
-//            ),
-//            flex: 1,
-//          ),
-//          new Expanded(
-//            child: new Container(
-//              color: Colors.greenAccent,
-//              height: 40.0,
-//            ),
-//            flex: 1,
-//          ),
-//        ],
-//      ),),
+      body: new Container(
+        color: ThemeColors.colorStart,
+        child: new Center(
+            child: new Column(
+            children: <Widget>[
+              new Expanded(
+                child: new Container(
+                  color: Colors.redAccent,
+                  //child: new Column(  // rgb与颜色的名称
+                      child:
+                        new Row(children: <Widget>[new Text('''玫\n瑰\n黄''',style: new TextStyle(fontFamily: 'Schyler',fontSize: 36.0,),), new Text('''玫\n瑰\n黄''',style: new TextStyle(fontFamily: 'Schyler',fontSize: 36.0),),
+                        ]),
+                  //),
+                ),
+                flex: 1,
+              ),
+              new Expanded(
+                child: new Container(
+                  color: Colors.greenAccent,
+                ),
+                flex: 1,
+              ),
+          ],
+        )),
       ),
     );
   }
-}
-
-
+// 动画
 //  @override
-//  Widget build(BuildContext context) {
-//    return new Container(
-//      child: new Column(
-//        children: <Widget>[
-//          new Flexible(
-//            child: new Container(
-//              color: Colors.redAccent,
-//              height: 40.0,
-//            ),
-//            flex: 1,
-//          ),
-//          new Flexible(
-//            child: new Container(
-//              color: Colors.redAccent,
-//              height: 40.0,
-//            ),
-//            flex: 1,
-//          ),
-//        ],
-//      ),
-//    );
+//  dispose() {
+//    //路由销毁时需要释放动画资源
+//    controller.dispose();
+//    super.dispose();
 //  }
+
+// 设置变换颜色
+//  child: FlatButton(
+//  child: Text("change color"),
+//  textColor: Colors.white,
+//  onPressed: () {
+//  setState(() {
+//  if(count%2==0){
+//  ThemeColors.colorStart = ThemeColors.colorEnd;
+//  }else{
+//  ThemeColors.colorStart = ThemeColors.colorMid;
+//  }
+//  count++;
+//  });
+//  },
+//  ),
+}
