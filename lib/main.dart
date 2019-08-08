@@ -55,29 +55,53 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Container(
-        color: ThemeColors.colorStart,
-        child: new Center(
-            child: new Column(
-            children: <Widget>[
-              new Expanded(
-                child: new Container(
-                  color: Colors.redAccent,
-                  //child: new Column(  // rgb与颜色的名称
-                      child:
-                        new Row(children: <Widget>[new Text('''玫\n瑰\n黄''',style: new TextStyle(fontFamily: 'Schyler',fontSize: 36.0,),), new Text('''玫\n瑰\n黄''',style: new TextStyle(fontFamily: 'Schyler',fontSize: 36.0),),
-                        ]),
-                  //),
-                ),
-                flex: 1,
+        color: ThemeColors.colorEnd,
+        child: new Column(
+          children: <Widget>[
+            new Expanded(
+              child: new Center(
+                  child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Stack(
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment(1,-0.2),
+                      child:Text(
+                        "鹤\n顶\n红",
+                        style: new TextStyle(
+                            fontFamily: 'lixuke',
+                            fontSize: 36.0,
+                            color: Color.fromARGB(255, 255, 255, 255)),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0,-1),
+                      child:new Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(Icons.filter_vintage),
+                        Text(
+                          "鹤\n顶\n红",
+                          style: new TextStyle(
+                              fontFamily: 'lixuke', fontSize: 36.0),
+                        )
+                      ],
+                    ),),
+                    ],
+                  ),
+                ],
+              )),
+              flex: 1,
+            ),
+            new Expanded(
+              child: new Center(
+                child: Text(""),
               ),
-              new Expanded(
-                child: new Container(
-                  color: Colors.greenAccent,
-                ),
-                flex: 1,
-              ),
+              flex: 1,
+            )
           ],
-        )),
+        ),
       ),
     );
   }
@@ -104,4 +128,29 @@ class _MyHomePageState extends State<MyHomePage>
 //  });
 //  },
 //  ),
+
+//  child: new Column(
+//  children: <Widget>[
+//  new Expanded(
+//  child: new Container(
+//  color: Colors.redAccent,
+//  //child: new Column(  // rgb与颜色的名称
+//  child:
+//  new Row(children: <Widget>[
+//  new Text('''玫\n瑰\n黄''',style: new TextStyle(fontFamily: 'Schyler',fontSize: 36.0,),),
+//  new Text('''玫\n瑰\n黄''',style: new TextStyle(fontFamily: 'Schyler',fontSize: 36.0),),
+//  ]),
+//  //),
+//  ),
+//  flex: 1,
+//  ),
+//  new Expanded(
+//  child: new Container(
+//  color: Colors.greenAccent,
+//  ),
+//  flex: 1,
+//  ),
+//  ],
+//  )
+
 }
